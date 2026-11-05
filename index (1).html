@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="윤지희의 콘텐츠 기획 포트폴리오. 캐릭터와 이야기의 매력을 발견하고 다양한 콘텐츠로 확장합니다.">
+  <title>윤지희 | Content Planner Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f6f2;
+      --surface: #fffefa;
+      --ink: #252820;
+      --muted: #777b70;
+      --line: #e5e5dc;
+      --sage: #b8c9ad;
+      --sage-dark: #52664b;
+      --sage-pale: #e9eee4;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Pretendard", "Malgun Gothic", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    header {
+      height: 78px; display: flex; align-items: center;
+      border-bottom: 1px solid rgba(37,40,32,.08);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .logo { font-size: 15px; font-weight: 800; letter-spacing: .08em; }
+    .nav-links { display: flex; gap: 34px; font-size: 11px; font-weight: 700; letter-spacing: .13em; color: var(--muted); }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .hero { padding: 112px 0 96px; position: relative; overflow: hidden; }
+    .eyebrow { color: var(--sage-dark); font-size: 11px; font-weight: 800; letter-spacing: .19em; }
+    h1 {
+      margin: 22px 0 18px; font-size: clamp(58px, 10vw, 116px);
+      line-height: .92; letter-spacing: -.075em; font-weight: 800;
+    }
+    h1 span { color: #a8b99d; }
+    .hero-copy { max-width: 650px; font-size: clamp(17px, 2vw, 21px); line-height: 1.75; font-weight: 500; letter-spacing: -.035em; }
+    .hero-sub { margin-top: 20px; color: var(--muted); font-size: 13px; }
+    .hero-mark {
+      position: absolute; right: 5%; top: 95px; width: 190px; height: 190px;
+      border-radius: 50%; background: var(--sage-pale); display: grid; place-items: center;
+      font-size: 78px; transform: rotate(8deg); opacity: .9;
+    }
+    .hero-mark::after { content: ""; position: absolute; inset: 13px; border: 1px solid #cbd7c3; border-radius: 50%; }
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 34px; }
+    .section-kicker { color: var(--sage-dark); font-size: 10px; letter-spacing: .18em; font-weight: 800; }
+    h2 { margin: 7px 0 0; font-size: clamp(31px, 4vw, 43px); letter-spacing: -.06em; line-height: 1.15; }
+    .section-note { color: var(--muted); font-size: 13px; max-width: 350px; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+      overflow: hidden; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .project:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(40,48,34,.07); }
+    .project-visual {
+      min-height: 185px; display: flex; align-items: center; justify-content: center;
+      position: relative; background: var(--sage-pale); overflow: hidden;
+    }
+    .project:nth-child(2) .project-visual { background: #f0eee5; }
+    .project:nth-child(3) .project-visual { background: #edf0ed; }
+    .project:nth-child(4) .project-visual { background: #f1ece8; }
+    .visual-emoji { font-size: 66px; filter: saturate(.78); position: relative; z-index: 1; }
+    .visual-label {
+      position: absolute; left: 22px; top: 18px; color: rgba(37,40,32,.52);
+      font-size: 10px; font-weight: 800; letter-spacing: .16em;
+    }
+    .visual-shape { position: absolute; width: 150px; height: 150px; border: 1px solid rgba(82,102,75,.18); border-radius: 50%; }
+    .visual-shape::before, .visual-shape::after { content: ""; position: absolute; border: 1px solid rgba(82,102,75,.15); border-radius: 50%; }
+    .visual-shape::before { inset: 15px; }
+    .visual-shape::after { inset: 31px; }
+    .project-body { padding: 25px 26px 24px; }
+    .project-top { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    .project-type { color: var(--sage-dark); font-size: 10px; font-weight: 800; letter-spacing: .11em; }
+    .project-number { color: #a5a99e; font-family: var(--serif); font-size: 13px; }
+    h3 { margin: 10px 0 9px; font-size: 23px; letter-spacing: -.055em; }
+    .role { color: var(--muted); font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+    .project-desc { margin: 0; font-size: 14px; line-height: 1.8; color: #4d5148; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip { border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; font-size: 10px; color: var(--muted); }
+    .project-detail { margin-top: 19px; border-top: 1px solid var(--line); padding-top: 15px; }
+    .project-detail summary { cursor: pointer; list-style: none; color: var(--sage-dark); font-size: 12px; font-weight: 700; }
+    .project-detail summary::-webkit-details-marker { display: none; }
+    .project-detail summary::after { content: "+"; float: right; font-size: 17px; line-height: 1; }
+    .project-detail[open] summary::after { content: "−"; }
+    .detail-content { padding-top: 13px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .detail-content strong { color: var(--ink); font-weight: 700; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .about-intro { font-size: 25px; line-height: 1.55; letter-spacing: -.045em; font-weight: 600; }
+    .about-intro span { color: var(--sage-dark); }
+    .about-copy { color: #60645a; font-size: 14px; line-height: 1.95; }
+    .about-copy p { margin: 0 0 17px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+    .skill { background: var(--sage-pale); color: var(--sage-dark); padding: 8px 13px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .profile-line { display: flex; gap: 15px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .profile-line b { width: 95px; flex: 0 0 95px; color: var(--muted); font-size: 11px; letter-spacing: .04em; }
+    .contact { background: #e9eee4; border-radius: 22px; padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact h2 { font-size: clamp(30px, 4vw, 42px); }
+    .contact p { color: #626b5b; font-size: 13px; margin: 12px 0 0; }
+    .email {
+      display: inline-flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--sage-dark);
+      padding: 9px 0; font-size: 14px; font-weight: 700; color: var(--sage-dark); white-space: nowrap;
+    }
+    footer { padding: 28px 0 38px; color: #92968c; font-size: 10px; letter-spacing: .08em; display: flex; justify-content: space-between; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      header { height: 68px; }
+      .nav-links { gap: 16px; font-size: 9px; }
+      .hero { padding: 82px 0 75px; }
+      .hero-mark { width: 105px; height: 105px; right: -5px; top: 70px; font-size: 42px; opacity: .65; }
+      .hero-mark::after { inset: 8px; }
+      .hero-copy { max-width: 90%; font-size: 17px; }
+      section { padding: 60px 0; }
+      .section-head { display: block; }
+      .section-note { margin-top: 12px; }
+      .project-grid { grid-template-columns: 1fr; gap: 15px; }
+      .project-visual { min-height: 155px; }
+      .about-grid { grid-template-columns: 1fr; gap: 26px; }
+      .about-intro { font-size: 22px; }
+      .contact { padding: 32px 25px; display: block; }
+      .contact .email { margin-top: 24px; }
+      footer { gap: 10px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top">YJH<span style="color:#91a685">.</span></a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#works">WORKS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="eyebrow">CONTENT PLANNER · PORTFOLIO</div>
+      <h1>YOON<br><span>JIHEE.</span></h1>
+      <p class="hero-copy">캐릭터의 성격과 세계관을 매력적인 이야기로 확장하고,<br>사람들의 흥미를 이끄는 콘텐츠를 기획합니다.</p>
+      <p class="hero-sub">CHARACTER IP · STORYTELLING · CONTENT PLANNING</p>
+      <div class="hero-mark" aria-hidden="true">✳</div>
+    </div>
+
+    <section id="works">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">01 / SELECTED WORKS</div>
+            <h2>기획하고, 만들고, 전달한 것들.</h2>
+          </div>
+          <p class="section-note">스토리 구성부터 영상 콘텐츠 제작까지, 각 프로젝트에서 맡은 역할과 기여를 중심으로 정리했습니다.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-visual">
+              <span class="visual-label">STORY · SCRIPT</span><span class="visual-shape"></span>
+              <span class="visual-emoji" aria-hidden="true">🎬</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top"><span class="project-type">STORY DEVELOPMENT</span><span class="project-number">01</span></div>
+              <h3>디비전 영화제</h3>
+              <div class="role">메인 각본 · 스토리 구성</div>
+              <p class="project-desc">남녀 주인공의 몸이 바뀌는 설정을 바탕으로 로맨스 코미디의 전체 이야기와 메인 대본을 작성했습니다. 보조 작가가 작성한 일부 장면을 전체 흐름에 맞게 수정해 완성도를 높였습니다.</p>
+              <div class="project-meta"><span class="chip">팀 프로젝트</span><span class="chip">각본</span><span class="chip">YouTube</span><span class="chip">조회수 435회</span></div>
+              <details class="project-detail">
+                <summary>담당 역할 및 기여</summary>
+                <div class="detail-content"><strong>기획 방향</strong> 설정의 특성을 활용해 인물 간 관계와 상황에서 웃음과 갈등이 발생하도록 이야기의 흐름을 구성했습니다.<br><strong>담당 업무</strong> 전체 스토리 구성, 메인 대본 작성, 일부 장면 수정 및 흐름 정리.</div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <span class="visual-label">VLOG · PRODUCTION</span><span class="visual-shape"></span>
+              <span class="visual-emoji" aria-hidden="true">📹</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top"><span class="project-type">CONTENT PRODUCTION</span><span class="project-number">02</span></div>
+              <h3>디비전 뭐해 브이로그</h3>
+              <div class="role">콘텐츠 기획 · 촬영 · 편집</div>
+              <p class="project-desc">동아리의 일상을 담은 브이로그 콘텐츠를 기획하고 촬영 및 영상 편집을 담당했습니다. 완성한 영상을 동아리 유튜브 채널에 업로드했습니다.</p>
+              <div class="project-meta"><span class="chip">6명</span><span class="chip">Adobe Premiere Pro</span><span class="chip">조회수 61회</span></div>
+              <details class="project-detail">
+                <summary>담당 역할 및 기여</summary>
+                <div class="detail-content"><strong>담당 업무</strong> 브이로그 콘텐츠 기획, 촬영, 영상 편집 및 업로드.<br><strong>제작 경험</strong> 아이디어를 영상 결과물로 구현하는 콘텐츠 제작 전 과정을 경험했습니다.</div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <span class="visual-label">FORMAT · CASTING</span><span class="visual-shape"></span>
+              <span class="visual-emoji" aria-hidden="true">💬</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top"><span class="project-type">CONTENT PLANNING</span><span class="project-number">03</span></div>
+              <h3>아바타 소개팅</h3>
+              <div class="role">콘텐츠 기획 · 참여자 섭외 · 출연</div>
+              <p class="project-desc">아바타 소개팅 콘텐츠의 전체 진행 흐름을 기획하고 동아리 외부 참여자를 섭외했습니다. 질문을 준비하고 ‘지령자’ 역할로 참여해 콘텐츠 진행에 함께했습니다.</p>
+              <div class="project-meta"><span class="chip">팀 프로젝트</span><span class="chip">기획·섭외</span><span class="chip">조회수 188회</span></div>
+              <details class="project-detail">
+                <summary>담당 역할 및 기여</summary>
+                <div class="detail-content"><strong>담당 업무</strong> 전체 콘텐츠 흐름 구성, 외부 참여자 섭외, 질문 준비, 지령자 역할 수행.<br><strong>기획 관점</strong> 참여자 간 상호작용이 자연스럽게 이어지도록 진행 요소를 구성했습니다.</div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual">
+              <span class="visual-label">ENTERTAINMENT · CAST</span><span class="visual-shape"></span>
+              <span class="visual-emoji" aria-hidden="true">🎤</span>
+            </div>
+            <div class="project-body">
+              <div class="project-top"><span class="project-type">ON-CAMERA EXPERIENCE</span><span class="project-number">04</span></div>
+              <h3>디비전 예능 콘텐츠</h3>
+              <div class="role">출연 · 미션 수행 · 현장 리액션</div>
+              <p class="project-desc">PD의 미션과 지시에 따라 콘텐츠에 출연하고, 다른 출연자와의 상호작용 및 애드리브로 장면의 흐름과 재미를 더했습니다.</p>
+              <div class="project-meta"><span class="chip">팀 프로젝트</span><span class="chip">출연</span><span class="chip">조회수 102회</span></div>
+              <details class="project-detail">
+                <summary>담당 역할 및 기여</summary>
+                <div class="detail-content"><strong>담당 업무</strong> 출연, 미션 수행, 출연자 간 대화와 리액션, 애드리브.<br><strong>경험</strong> 촬영 현장에서 상대방의 반응을 살피고 즉흥적으로 호흡을 맞추는 경험을 쌓았습니다.</div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / ABOUT</div><h2>이야기의 매력을 발견합니다.</h2></div>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p class="about-intro">캐릭터와 이야기의 매력을 발견해<br><span>사람들이 좋아할 이유</span>를 만듭니다.</p>
+            <div class="skill-list">
+              <span class="skill">Storytelling</span><span class="skill">Character Insight</span>
+              <span class="skill">Content Planning</span><span class="skill">Scriptwriting</span>
+              <span class="skill">Video Production</span>
+            </div>
+          </div>
+          <div class="about-copy">
+            <p>문예창작을 통해 소설과 시나리오 등 이야기의 구조와 인물을 고민했고, 미디어앤아트테크놀로지 전공에서 아이디어를 영상과 디지털 매체로 구현하는 경험을 쌓았습니다.</p>
+            <p>캐릭터의 외형뿐 아니라 성격과 관계, 세계관에서 비롯되는 고유한 매력을 중요하게 생각합니다. 인물의 특징이 이야기 속에서 자연스럽게 드러나고, 이를 접한 사람들이 작품과 캐릭터에 흥미를 느끼도록 만드는 기획에 관심이 있습니다.</p>
+            <p>각본 작성과 영상 콘텐츠 기획·제작 경험을 바탕으로, 이야기를 구상하는 단계부터 실제 결과물로 전달하는 과정까지 폭넓게 이해하는 기획자로 성장하고자 합니다.</p>
+            <div class="profile-line"><b>EDUCATION</b><span>명지대학교 미디어앤아트테크놀로지학과</span></div>
+            <div class="profile-line"><b>BACKGROUND</b><span>문예창작 전공 · 스토리 및 시나리오 창작</span></div>
+            <div class="profile-line"><b>TOOLS</b><span>Adobe Premiere Pro · Figma</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <div class="section-kicker">03 / CONTACT</div>
+            <h2>함께 재미있는 이야기를<br>만들고 싶습니다.</h2>
+            <p>새로운 캐릭터와 콘텐츠를 고민하는 일에 열려 있습니다.</p>
+          </div>
+          <a class="email" href="mailto:as0377599@naver.com">✉ as0377599@naver.com <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 YOON JIHEE. CONTENT PLANNER PORTFOLIO.</span>
+    <span>STORY · CHARACTER · CONTENT</span>
+  </footer>
+</body>
+</html>
